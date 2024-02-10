@@ -4,18 +4,24 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="./styles.css">
     <title>RPG - Dragon Repeller</title>
-    <script src="./script.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div class="header">
+      <h1 class="text">Dragon Repeller</h1>
+    </div>
     <div id="game">
       <div id="stats">
         <span class="stat">XP: <strong><span id="xpText">0</span></strong></span>
         <span class="stat">Health: <strong><span id="healthText">100</span></strong></span>
         <span class="stat">Gold: <strong><span id="goldText">50</span></strong></span>
       </div>
-      <div id="actionWindow">
+      <div id="actionWindow"> <!--mycode-->
         
-      </div>
+      </div> <!--mycode-->
       <div id="controls">
         <button id="button1">Go to store</button>
         <button id="button2">Go to cave</button>
@@ -32,4 +38,5 @@
         Where do you want to go? Use the buttons above.
       </div>
     </div>
+    <script src="./script.js"></script>
   </body>

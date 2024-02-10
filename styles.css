@@ -1,29 +1,53 @@
 body{
-    background-color: #0a0a23;
+    background-color: #351a0f;
 }
 
+h1{
+    font-family:'Playfair Display', serif;
+    margin: auto;
+    text-align: center;
+    background-color: #0a0a23;
+    color: #ffac33;
+    
+}
+.header{
+    border: #0a0a23 solid 10px;
+    max-width: 500px;
+    margin:auto;
+    min-width: 460px;
+    border-radius: 20px;
+    
+}
 #text{
     background-color: #0a0a23;
     color: #ffffff;
     padding: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: small;
+    border-radius: 10px;
 }
 
 #game{
     max-height: 700px;
     max-width: 500px;
+    min-width: 460px;
     background-color: #ffffff;
+    border-radius: 20px;
     color: #ffffff;
     padding: 10px;
     margin-top: 30px;
     margin-bottom: 0px;
     margin-left: auto;
     margin-right: auto;
+    border:#0a0a23 solid 10px;
 }
 #controls, #stats{
     border: 1px solid #0a0a23;
     color: #0a0a23;
     padding: 5px;
+    border-radius: 10px;
 }
+
 #monsterStats {
     border: 1px solid #0a0a23;
     padding: 5px;
@@ -33,7 +57,8 @@ body{
 }
 .stat {
     padding-right: 10px;
-    margin-left: 15%
+    margin-left: 15%;
+    font-family: 'Playfair Display', serif;
   }
 
 button {
@@ -42,7 +67,11 @@ button {
     background-color: #feac32;
     background-image: linear-gradient(#fecc4c, #ffac33);
     border: 3px solid #feac32;
-    margin-left: 11%;
+    margin-left: 10;
+    width: 32.7%;
+    font-family: 'Playfair Display', serif;
+    font-weight: 1000;
+    border-radius: 10px;
   }
 
 #actionWindow {
@@ -53,4 +82,7 @@ button {
     color: antiquewhite;
     padding: 1px;
     margin: 1px;
+    border-radius: 10px;
+    border: #0a0a23 solid 1px;
 }
+
