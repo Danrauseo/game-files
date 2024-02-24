@@ -57,7 +57,7 @@ h1{
 }
 .stat {
     padding-right: 10px;
-    margin-left: 15%;
+    margin-left: 7%;
     font-family: 'Playfair Display', serif;
   }
 
@@ -74,15 +74,18 @@ button {
     border-radius: 10px;
   }
 
-#actionWindow {
+.actionWindow {
     max-width: 500px;
+    width: 500px;
     max-height: 700px;
-    height: 200px;
-    background-color: antiquewhite;
-    color: antiquewhite;
-    padding: 1px;
-    margin: 1px;
+    height: 300px;
+    padding:1px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 10px;
+    object-fit: cover;
+    
     border: #0a0a23 solid 1px;
+    
 }
 
