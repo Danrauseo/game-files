@@ -34,7 +34,7 @@ const button = document.querySelector("button");
 const weapons = [
   {
     name: " stick",
-    power: 10000
+    power: 5
   },
   {
     name: " dagger",
