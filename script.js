@@ -34,7 +34,7 @@ const button = document.querySelector("button");
 const weapons = [
   {
     name: " stick",
-    power: 5
+    power: 10000
   },
   {
     name: " dagger",
@@ -95,7 +95,7 @@ const monsters = [
   },
   {
     name: "The Cyclops",
-    level: 50,
+    level: 100,
     health: 1000
   },
   {
@@ -119,7 +119,7 @@ const locations = [
     "button text": ["Start game", "Start game", "Start game"],
     "button functions": [goMap, goMap, goMap],
     text: "Welcome to Adventures of Tyche! Greece in the year 600BC was overrun with terrible monsters. Soon a young boy will be born who will challenge the power of these beasts, Hercules. However, Greece can't wait for him to be born and needs help now. You are the ancient goddess of fortune, Tyche. You need to liberate the major cities of greece from the tyranny of the monsters who live deep inside the caves.Press any button to start the game.",
-    image: "gameImages/title.png"
+    image: "title.png"
   },
   {
     name: "map",
@@ -156,14 +156,14 @@ const locations = [
   },
   {
     name: "health and armour",
-    "button text": ["Buy health (10 Gold)", "Buy armour (10 Gold)", "Go to store"],
+    "button text": ["Buy health (10 Gold)", "Buy armour (20 Gold)", "Go to store"],
     "button functions": [buyHealth, buyArmour, goStore],
     text: "You see some health and armour for sale.",
     image: "healthandarmour.png"
   },
   {
     name: "weapons",
-    "button text": ["Buy weapon (30 Gold)", "Plus 2 weapon power (15 Gold)", "Go to store"],
+    "button text": ["Buy weapon (100 Gold)", "Plus 2 weapon power (15 Gold)", "Go to store"],
     "button functions": [buyWeapon, improveWeapon, goStore],
     text: "You see some weapons for sale.",
     image: "Weapons.png"
@@ -177,7 +177,7 @@ const locations = [
     name: "Macadonian town square",
     "button text": ["Go to look at Map", "Go to cave", "Go to store"],
     "button functions": [goMap, goCaveM, goStore],
-    text: "You land in Macedonia. You see a sign that says \"Store\".",
+    text: "As you enter the expansive realm of Macedonia, the lush landscapes of Philip II's kingdom unfold before you. There, amidst the tranquility, lies an ominous cave, its mouth emitting the chilling sounds of creatures stirring in the dark. A stone's throw away, a lively store brims with wares for the adventurous soul, manned by a merchant whose tales of Alexander's conquests fill the air. Macedonia's mysteries beckon.",
     image: "Macedonia.png"
   },
   {
@@ -208,7 +208,7 @@ const locations = [
     name: "Athenian town square",
     "button text": ["Go to look at Map", "Go to cave", "Go to store"],
     "button functions": [goMap, goCaveA, goStore],
-    text: "You land in Athens. You see a sign that says \"Store\".",
+    text: "Upon reaching the storied city of Athens, you are enveloped by the weight of history and the echoes of philosophy that permeate its streets. An ancient cave near the city promises its own kind of wisdom, albeit through confrontation with the monsters that lurk in its shadows. In the city's heart, a bustling store offers goods to aid your journey, the Athenian shopkeeper engaging you in conversation about democracy, art, and the pursuit of knowledge.",
     image: "Athens.png"
   },
   {
@@ -239,9 +239,9 @@ const locations = [
 
   {
     name: "Thrakian Town Square",
-    "button text": ["Go to town square", "Thracian Cave System", "Go to the Store"],
+    "button text": ["Go to look at Map", "Thracian Cave System", "Go to the Store"],
     "button functions": [goMap, goCaveT, goStore],
-    text: "You land in Thrace. You see a cave system to the east and a store to the west.",
+    text: "Thrace greets you with its wild, untamed beauty, where the legacy of Orpheus and the muses seem to dance in the wind. An eerie cave entrance stands nestled against a backdrop of dense forests, the shrieks of monsters within promising peril and adventure. Not far from this daunting sight, a welcoming store offers sanctuary and supplies, its Thracian owner sharing stories of legendary heroes and ancient gods.",
     image: "Thrace.png"
  },
   {
@@ -272,9 +272,9 @@ const locations = [
 
   {
     name: "Spartan Town Square",
-    "button text": ["Go to town square", "Spartan Cave System", "Go to the Store"],
+    "button text": ["Go to look at Map", "Spartan Cave System", "Go to the Store"],
     "button functions": [goMap, goCaveS, goStore],
-    text: "You land in Sparta. You see a cave system to the east and a store to the west.",
+    text: "Upon arriving in the rugged lands of Sparta, you stand before the city's imposing gates, the air thick with the spirit of warriors past and present. To your right, a dark cave entrance whispers of hidden dangers, the growls of unseen monsters echoing from its depths. Nearby, a modest store offers supplies, its Spartan keeper eyeing you with a mixture of curiosity and respect. The promise of challenge and glory in Sparta is palpable.",
     image: "Sparta.png"
  },
   {
@@ -307,25 +307,30 @@ const locations = [
     name: "fight",
     "button text": ["Attack", "Dodge", "Run"],
     "button functions":[attack, dodge, goTown],
-    text: "You entre the fight with your foe. You're current attack power is " + weapons[currentWeapon].power + " and your current dodge chance is " + ((0.25 + (0.75 * (armourFunction(armour))) * 100) * 100) + "%."
+    text: "You entre the fight with your foe. You're current attack power is " + weapons[currentWeapon].power + " and your current dodge chance is " + ((0.25 + (0.75 * (armourFunction(armour))) * 100) * 100) + "%.",
+  
   },
   {
     name: "kill monster",
     "button text": ["Go to town square", "Go to town square", "Go to town square"],
     "button functions": [goTown, goTown, goTown],
-    text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.'
+    text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.',
+    image: "killmonster.png"
   },
   {
     name: "lose",
     "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
     "button functions": [restart, restart, restart],
-    text: "You die. &#x2620;"
+    text: "You were slain. &#x2620;",
+    image: "gameOver.png"
+
   },
   { 
     name: "win", 
     "button text": ["REPLAY?", "REPLAY?", "REPLAY?"], 
     "button functions": [restart, restart, restart], 
-    text: "You defeat the dragon! YOU WIN THE GAME! &#x1F389;" 
+    text: "You defeated Hades and rid the land of monsters, the people of Greece are eternally grateful! YOU WIN THE GAME! &#x1F389;",
+    image: "win.png"
   },
   
 
@@ -334,9 +339,9 @@ const locations = [
 
   {
     name: "Crete",
-    "button text": ["Go to Map", "Enter the Temple of Tyche", "Go to the Store"],
-    "button functions": [goMap, goTemple, goStore],
-    text: "You land in Crete. You look up at the Temple of Tyche - your Temple. You see monsters guarding the entrance and hear blood-curdling sounds coming from inside...",
+    "button text": ["Go to Temple", "Go to Temple", "Go to the Store"],
+    "button functions": [goTemple, goTemple, goStore],
+    text: "Arriving in Crete, the cradle of ancient civilizations and myths, you stand before the Temple of Tyche, your sacred dominion. The majestic structure, bathed in the golden light of dusk, stands as a beacon amidst the chaos. Guarding the entrance, monstrous figures loom, their forms casting long shadows across the temple's steps, a sinister welcome to those who dare approach. From within the depths of the temple, blood-curdling sounds pierce the air, a chilling symphony of the battles that await. This is the heart of your power, the place where fate itself will be challenged. The final confrontation looms, a test of divine will against the darkness that seeks to engulf your realm. The destiny of gods and mortals hangs in the balance, and only through courage, strength, and wisdom will the light prevail.",
     image: "crete.png"
   },
 
@@ -344,44 +349,46 @@ const locations = [
     name: "temple",
     "button text": ["Fight Hydra", "Entre the temple", "Go to town square"],
     "button functions": [fightHydra, entreTemple, goTownC],
-    text: "You are at the Temple of Tyche. You see a Hydra guarding the entrance, its heads writhe in the air and its 3 heads turn to looking at you, snarling. The Hydra will regen 20 health every turn, kill it quickly or run."
+    text: "You are at the Temple of Tyche. You see a Hydra guarding the entrance, its heads writhe in the air and its 3 heads turn to looking at you, snarling. The Hydra will regen 20 health every turn, kill it quickly or run.",
+    image: "temple.png"
   },
   {
     name: "temple entrance",
     "button text": ["Fight Minotaur", "Go deeper into the temple", "Go to town square"],
     "button functions": [fightMinotaur, goDeeperTemple, goTownC],
-    text: "You are at the entrance of the temple. You see a Minotaur guarding the entrance, its eyes red with rage and its horns glinting in the ray of the sun's light which shines through a crack in the ceiling. Your armour will be more effective in this fight but the minotaur will do double base damage to you in straight combat."
+    text: "You are at the entrance of the temple. You see a Minotaur guarding the entrance, its eyes red with rage and its horns glinting in the ray of the sun's light which shines through a crack in the ceiling. Your armour will be more effective in this fight but the minotaur will do double base damage to you in straight combat.",
+    image: "templeEntrance.png"
   },
   {
     name: "temple deeper",
     "button text": ["Fight Cyclops", "Go deeper into the temple", "Go to town square"],
     "button functions": [fightCyclops, goDeepestStillTemple, goTownC],
-    text: "You are deeper in the temple. You see a Cyclops guarding the entrance, its eye glinting in the dark and its club raised, ready to strike. As you go to strike your first blow, he takes the sword from your hand and throws it across the room. You will have to fight him with your the second best weapon in your inventory - there's no shame in running."
+    text: "You are deeper in the temple. You see a Cyclops guarding the entrance, its eye glinting in the dark and its club raised, ready to strike - there's no shame in running.",
+    image: "templeDeeper.png"
   },
   {
     name: "temple deeper still",
     "button text": ["Fight Gorgon", "Go to town square", "Go to town square"],
     "button functions": [fightGorgon, goDeepestTemple, goTownC],
-    text: "You are deeper still in the temple. You hear the hissing as you approach and recognise the Gorgon's distinctive smell. You close your eyes and prepare to fight - during this fight your avaisiveness and aim during this fight will be severely effected. Turn back now if you are not prepared."
+    text: "You are deeper still in the temple. You hear the hissing as you approach and recognise the Gorgon's distinctive smell. You close your eyes and prepare to fight - during this fight your avaisiveness and aim during this fight will be severely effected. Turn back now if you are not prepared.",
+    image: "gorgon.png"
   },
  
   {
     name: "temple deepest",
     "button text": ["Fight Hades", "Go to town square", "Go to town square"],
     "button functions": [fightHades, noEscape, noEscape],
-    text: "You are in the deepest part of the temple. You see Hades, the god of the underworld. He is the most powerful monster in the game. You will need to be at your best to defeat him."
+    text: "You are in the deepest part of the temple. You see Hades, the god of the underworld. He is the most powerful monster in the game. You will need to be at your best to defeat him.",
+    image: "templeDeepest.png"
   },
+ 
   {
-    name: "crete intro",
-    "button text": ["Go to Map", "Set sail for Crete", "Go to the Store"],
-  },
-  {
-    name: "boss battle",
-    "button text": ["Attack", "Dodge", "Run"],
-    "button functions": [attack, dodge, goTown],
-    text: "You are in the boss battle. You're current attack power is " + weapons[currentWeapon].power + " and your current dodge chance is " + ((0.25 + (0.75 * (armourFunction(armour))) * 100) * 100) + "%."
+    name: "Crete Intro",
+    "button text": ["Go to Crete", "Go to Crete", "Go to Crete"],
+    "button functions": [goTownC, goTownC, goTownC],
+    text: "With the fall of the last monstrous guardian on the Greek islands, whispers of your triumphs sail ahead of you to Crete, the land where legends dwell and myths breathe. This ancient isle, steeped in the tales of gods and heroes, awaits your arrival with bated breath. It stands as the ultimate arena, where the shadows of history and the trials of the gods converge. Here, in Crete, your courage will be tested against the echoes of antiquity, challenging you to rise above the legends of old and carve your own legacy into the stones of time. The journey ahead promises glory for the victorious and oblivion for the fallen. To Crete, where destiny calls.",
+    image: "crete.png"
   }
-  
 
 ];
 //initialize buttons//
@@ -518,15 +525,24 @@ function goTemple() {
 }
 function entreTemple() {
   locationSet = 27;
-  update(locations[29]);
+  if (!defeatedBosses[6]) {
+    noPass0();
+  } else {
+  update(locations[29]);}
 }
 function goDeeperTemple() {
   locationSet = 27;
-  update(locations[30]);
+  if (!defeatedBosses[7]) {
+    noPass1();
+  } else {
+  update(locations[30]);}
 }
 function goDeepestStillTemple() {
   locationSet = 27;
-  update(locations[31]);
+  if (!defeatedBosses[8]) {
+    noPass2();
+  } else {
+  update(locations[31]);}
 }
 function goDeepestTemple() {
   locationSet = 27;
@@ -540,6 +556,26 @@ function goCrete() {
 function noEscape() {
   text.innerText = "You cannot escape from this fight, Hades' fire has cut off the exit to the temple, the flames reach to the roof like a pillar of fire. It seems the only way out is by fighting Hades.";
 }
+
+function noPass0() {
+  text.innerText = "You cannot pass through the temple entrance, the Hydra's heads are too many and its strength too great to move.";
+
+}
+function noPass1() {
+  text.innerText = "You cannot pass through the temple, the Minotaur's horns are too wide and its strength too great to move.";
+}
+
+function noPass2() {
+  text.innerText = "You cannot pass through the temple entrance, the Cyclops' club is too heavy and its strength too great to move.";
+}
+
+function noPass3() {
+  text.innerText = "You cannot pass through the temple entrance, the Gorgon's hissing and the smell of its breath is too much to bear.";
+}
+
+
+
+
 function fightDragon() {
   fighting = 2;
   goFight();
@@ -634,46 +670,46 @@ function fightTyphon() {
 }
 
 function fightAgrius() {
-  fighting = 4;
+  fighting = 3;
   goFight();
 }
 
 function fightHecatoncheir() {
-  fighting = 5;
+  fighting = 4;
   goFight();
 }
 function fightCerberus() {
-  fighting = 6;
+  fighting = 5;
   goFight();
 }
 
 //End Game Bosses//
 
 function fightHydra() {
-  fighting = 7;
+  fighting = 6;
   goFight();
 }
 function fightMinotaur() {
-  fighting = 8;
+  fighting = 7;
   goFight();
 }
 function fightCyclops() {
-  fighting = 9;
+  fighting = 8;
   goFight();
 }
 function fightGorgon() {
-  fighting = 10;
+  fighting = 9;
   goFight();
 }
 function fightHades() {
-  fighting = 11;
+  fighting = 10;
   goFight();
 }
 
 
 function goFight() {
   update(locations[23]);
-  monsterHealth = Math.round(monsters[fighting].health * (1 + (0.2 * (xp/20))));
+  monsterHealth = Math.round(monsters[fighting].health * (1 + (0.2 * (xp/60))));
   monsterStats.style.display = 'block';
   monsterName.innerText = monsters[fighting].name;
   monsterHealthText.innerText = monsterHealth;
@@ -686,14 +722,29 @@ function goFight() {
   if (fighting === 2) {
     actionWindow.src = "Typhon.png";
   }
-  if (fighting === 4) {
+  if (fighting === 3) {
     actionWindow.src = "Agrius.png";
   }
-  if (fighting === 5) {
+  if (fighting === 4) {
     actionWindow.src = "Hecatoncheir.png";
   }
-  if (fighting === 6) {
+  if (fighting === 5) {
     actionWindow.src = "Cerberus.png";
+  }
+  if (fighting === 6) {
+    actionWindow.src = "Hydra.png";
+  }
+  if (fighting === 7) {
+    actionWindow.src = "Minotaur.png";
+  }
+  if (fighting === 8) {
+    actionWindow.src = "Cyclops.png";
+  }
+  if (fighting === 9) {
+    actionWindow.src = "Gorgon.png";
+  }
+  if (fighting === 10) {
+    actionWindow.src = "Hades.png";
   }
 }
 
@@ -707,11 +758,22 @@ function armourFunction(armour) {
 // Monster Attack damage function //
 
 function monsterAttack() {
-let monsterAttackDmg = Math.round(monsters[fighting].level * (1 + (0.1 * (xp/20))));
+let monsterAttackDmg = Math.round(monsters[fighting].level * (1 + (0.1 * (xp/60))));
 return monsterAttackDmg;
 }
 
  // Attack Function with armourFunction variable //
+// end-game boss fight where hydra regens 10 Health per turn//
+function hydraRegen() {
+  monsterHealth += 10;
+  monsterHealthText.innerText = monsterHealth;
+}
+
+// end-game boss fight where your dodges have a greater chance of success and do more damage but the minotaur will do double base damage to you in straight combat.
+
+
+  
+  let defeatedBosses = {};
 
   function attack() {
     text.innerText = "The " + monsters[fighting].name + " attacks.";
@@ -720,64 +782,95 @@ return monsterAttackDmg;
     monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
     healthText.innerText = health;
     monsterHealthText.innerText = monsterHealth;
+    if (fighting === 6) {
+      hydraRegen();
+      text.innerText += " The Hydra regenerates 10 health.";
+    }
+    if (fighting === 7) {
+      health -= Math.round((monsterAttack() * 2 * (1 - (1 * (armourFunction(armour))))));
+      healthText.innerText = health;
+    }
+    if (fighting === 9) {
+      if (Math.random() < 0.5) {
+        monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+        monsterHealthText.innerText = monsterHealth;
+      } else {
+        text.innerText = "You try to attack the " + monsters[fighting].name + " but miss.";
+        health -= Math.round((monsterAttack() * (1 - (1 * (armourFunction(armour))))));
+        healthText.innerText = health;
+      }
+    }
+
     if (health <= 0) {
       lose();
     } else if (monsterHealth <= 0) {
-      if ([2, 4, 5, 6].includes(fighting)) {
-        if (bossCounter < 4) {
-          defeatMonster();
+      if ([2, 3, 4, 5, 6, 7, 8, 9, 10].includes(fighting)) {
+        if (!defeatedBosses[fighting]) {
+          defeatedBosses[fighting] = true;
           bossCounter++;
-      } else if (bossCounter === 4) {
-        update(locations[34]);
-        locations[1].button1.innerText = "Go to Crete";
-        locations[1].button1.onclick = goCrete;
-    }} else {
-      defeatMonster();
+
+          let defeatedBossesList = document.getElementById('defeatedBossesList');
+          let span = document.createElement('span');
+          span.textContent =  monsters[fighting].name;
+          span.className = 'defeated';
+          defeatedBossesList.appendChild(span);
+        }
+        defeatMonster();
+      } else {
+        defeatMonster();
+      }
     }
   }
-}
-
-function goFightBoss() {
-  update(locations[34]);
-  monsterHealth = Math.round(monsters[fighting].health * (1 + (0.2 * (xp/20))));
-  monsterStats.style.display = 'block';
-  monsterName.innerText = monsters[fighting].name;
-  monsterHealthText.innerText = monsterHealth;
-  actionWindow.style.border = "1px solid red";
-  button.style.backgroundColor = "linear-gradient(#fecc4c, #ffac33)"; // Change 'background-color' to 'backgroundColor'
-
-  if (monsters[fighting].name === "The Hydra") {
-    actionWindow.src = "Hydra.png";
-  } else if (monsters[fighting].name === "The Minotaur") {
-    actionWindow.src = "Minotaur.png";
-  } else if (monsters[fighting].name === "The Cyclops") {
-    actionWindow.src = "Cyclops.png";
-  } else if (monsters[fighting].name === "The Gorgon") {
-    actionWindow.src = "Gorgon.png";
-  } else if (monsters[fighting].name === "Hades") {
-    actionWindow.src = "Hades.png";
-  }
-}
 
   // Dodge Logic //
 
 function dodge() { 
-  if (Math.random() < (0.25 + (0.75 * (armourFunction(armour))))) {
+  if (monsters[fighting].name === "The Minotaur") {
+
+    if (Math.random() < (0.5 + (0.5 * (armourFunction(armour)))))  {
+      text.innerText = "You dodge the attack from the " + monsters[fighting].name;
+  monsterHealth -= Math.round((weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1));
+  monsterHealthText.innerText = monsterHealth;
+  if (monsterHealth <= 0) {
+        defeatMonster();
+} else {
+  text.innerText = "You try to dodge the attack from the " + monsters[fighting].name + " but fail.";
+  health -= Math.round((monsterAttack() * (1 - (1 * (armourFunction(armour))))));
+  healthText.innerText = health;
+  if (health <= 0) {
+    lose();
+  }
+}
+} } else if (monsters[fighting].name === "The Gorgon") {
+  if (Math.random() < (0.1 + (0.9 * (armourFunction(armour))))  ) {
+    text.innerText = "You dodge the attack from the " + monsters[fighting].name;
+    monsterHealth -= Math.round((weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1));
+    monsterHealthText.innerText = monsterHealth;
+    if (monsterHealth <= 0) {
+      defeatMonster();
+    }}}
+   else {
+
+  if (Math.random() < (0.25 + (0.75 * (armourFunction(armour)))))  {
   text.innerText = "You dodge the attack from the " + monsters[fighting].name;
   monsterHealth -= Math.round((weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1)/2);
   monsterHealthText.innerText = monsterHealth;
   if (monsterHealth <= 0) {
-    if ([2, 4, 5, 6].includes(fighting)) {
-      if (bossCounter < 4) {
-        defeatMonster();
+    if ([2, 3, 4, 5, 6, 7, 8, 9, 10].includes(fighting)) {
+      if (!defeatedBosses[fighting]) {
+        defeatedBosses[fighting] = true;
         bossCounter++;
-    } else if (bossCounter === 4) {
-      update(locations[34]);
-      locations[1].button1.innerText = "Go to Crete";
-      locations[1].button1.onclick = goCrete;
-  }} else {
-    defeatMonster();
-  }}
+
+        let defeatedBossesList = document.getElementById('defeatedBossesList');
+        let listItem = document.createElement('li');
+        listItem.textContent = 'Boss ' + fighting;
+        defeatedBossesList.appendChild(listItem);
+      }
+      defeatMonster();
+    } else {
+      defeatMonster();
+    }
+  }
 } else {
   text.innerText = "You try to dodge the attack from the " + monsters[fighting].name + " but fail.";
   health -= Math.round((monsterAttack() * (1 - (1 * (armourFunction(armour))))));
@@ -787,6 +880,7 @@ function dodge() {
   }
 }
 } 
+}
 
 
 
@@ -797,7 +891,10 @@ function defeatMonster() {
   xp += monsters[fighting].level;
   goldText.innerText = gold;
   xpText.innerText = xp;
-  update(locations[24]);
+  if (bossCounter === 4) {
+    update(locations[33]);
+  } else {update(locations[24]);}
+
 }
 
 function lose() {
@@ -816,9 +913,12 @@ function restart() {
   currentWeapon = 0;
   armour = 0;
   inventory = ["stick"];
+  bossCounter = 0;
   goldText.innerText = gold;
   healthText.innerText = health;
   xpText.innerText = xp;
   armourText.innerText = armour;
+  let defeatedBossesList = document.getElementById('defeatedBossesList');
+  defeatedBossesList.innerHTML = '';
   goTitle();
 }
