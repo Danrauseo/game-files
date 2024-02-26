@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./styles.css">
-    <title>RPG - Dragon Repeller</title>
+    <title>Adventures of Tyche</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,21 +11,26 @@
   </head>
   <body>
     <div class="header">
-      <h1 class="text">Dragon Repeller</h1>
+      <h1 class="text">Adventures of Tyche</h1>
     </div>
+    
     <div id="game">
+      <div id="defeatedBosses">
+        <h2>Defeated Bosses:<div id="defeatedBossesList"></div></h2>
+      </div>
       <div id="stats">
         <span class="stat">XP: <strong><span id="xpText">0</span></strong></span>
         <span class="stat">Health: <strong><span id="healthText">100</span></strong></span>
         <span class="stat">Gold: <strong><span id="goldText">50</span></strong></span>
+        <span class="stat">Armour: <strong> <span id="armourText">0</span></strong></span>
       </div>
-      <div id="actionWindow"> <!--mycode-->
-        
+      <div> <!--mycode-->
+        <img src="title.png" alt="titleImage" id="actionWindow" class="actionWindow">
       </div> <!--mycode-->
       <div id="controls">
-        <button id="button1">Go to store</button>
-        <button id="button2">Go to cave</button>
-        <button id="button3">Fight dragon</button>
+        <button id="button1">Start Game</button>
+        <button id="button2">Start Game</button>
+        <button id="button3">Start Game</button>
       </div>
       <div id="monsterStats">
         <span class="stat">Monster Name: <strong><span id="monsterName"></span></strong></span>
@@ -33,10 +38,7 @@
       </div>
       
       <div id="text">
-        Welcome to Dragon Repeller. 
-        You must defeat the dragon that is preventing people 
-        from leaving the town. You are in the town square. 
-        Where do you want to go? Use the buttons above.
+        Welcome to <em>Adventures of Tyche</em>. Greece in the year 600BC was overrun with terrible monsters. Soon a young boy will be born who will challenge the power of these beasts, Hercules. However, Greece cannot wait for him to be born and needs help now. You are the ancient goddess of fortune, Tyche. You need to liberate the major cities of Greece from the tyranny of the monsters who live deep inside the caves. Press any button to start the game.
       </div>
     </div>
     <script src="./script.js"></script>
